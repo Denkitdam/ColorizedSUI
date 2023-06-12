@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var sliderValue = Double.random(in: 0...255)
+    @State private var redSliderValue = Double.random(in: 0...255)
+    @State private var greenSliderValue = Double.random(in: 0...255)
+    @State private var blueSliderValue = Double.random(in: 0...255)
     
     var body: some View {
         VStack {
             Rectangle()
                 .frame(width: 350, height: 200)
                 .cornerRadius(20)
-            ColorSliderView(value: $sliderValue, color: .red)
-            ColorSliderView(value: $sliderValue, color: .green)
-            ColorSliderView(value: $sliderValue, color: .blue)
+            ColorSliderView(value: $redSliderValue, color: .red)
+            ColorSliderView(value: $greenSliderValue, color: .green)
+            ColorSliderView(value: $blueSliderValue, color: .blue)
             Spacer()
         }
         .padding()
