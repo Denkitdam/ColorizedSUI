@@ -13,24 +13,28 @@ struct ContentView: View {
     @State private var blueSliderValue = Double.random(in: 0...255)
     
     var body: some View {
-        VStack {
-            Rectangle()
-                .frame(width: 350, height: 200)
-                .cornerRadius(20)
-                .foregroundColor(
-                    Color(
-                        red: redSliderValue / 255,
-                        green: greenSliderValue / 255,
-                        blue: blueSliderValue / 255
+        ZStack {
+            Color(red: 0.4, green: 0.2, blue: 1.0)
+                .ignoresSafeArea()
+            VStack {
+                Rectangle()
+                    .frame(width: 350, height: 200)
+                    .cornerRadius(20)
+                    .foregroundColor(
+                        Color(
+                            red: redSliderValue / 255,
+                            green: greenSliderValue / 255,
+                            blue: blueSliderValue / 255
+                        )
                     )
-                )
-            
-            ColorSliderView(value: $redSliderValue, color: .red)
-            ColorSliderView(value: $greenSliderValue, color: .green)
-            ColorSliderView(value: $blueSliderValue, color: .blue)
-            Spacer()
+                
+                ColorSliderView(value: $redSliderValue, color: .red)
+                ColorSliderView(value: $greenSliderValue, color: .green)
+                ColorSliderView(value: $blueSliderValue, color: .blue)
+                Spacer()
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
@@ -49,7 +53,7 @@ struct ColorSliderView: View {
             Slider(value: $value, in: 0...255, step: 1)
                 .tint(color)
             Text("\(lround(value))")
-                .foregroundColor(color)
+                .foregroundColor(.white)
                 .frame(width: 45)
         }
     }
