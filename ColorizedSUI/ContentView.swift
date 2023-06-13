@@ -46,7 +46,8 @@ struct ColorSliderView: View {
     
     var body: some View {
         HStack {
-            Slider(value: $value, in: 0...255, step: 1).tint(color)
+            Slider(value: $value, in: 0...255, step: 1)
+                .tint(color)
             Text("\(lround(value))")
                 .foregroundColor(color)
                 .frame(width: 45)
