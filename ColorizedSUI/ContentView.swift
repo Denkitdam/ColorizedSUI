@@ -17,6 +17,14 @@ struct ContentView: View {
             Rectangle()
                 .frame(width: 350, height: 200)
                 .cornerRadius(20)
+                .foregroundColor(
+                    Color(
+                        red: redSliderValue / 255,
+                        green: greenSliderValue / 255,
+                        blue: blueSliderValue / 255
+                    )
+                )
+            
             ColorSliderView(value: $redSliderValue, color: .red)
             ColorSliderView(value: $greenSliderValue, color: .green)
             ColorSliderView(value: $blueSliderValue, color: .blue)
